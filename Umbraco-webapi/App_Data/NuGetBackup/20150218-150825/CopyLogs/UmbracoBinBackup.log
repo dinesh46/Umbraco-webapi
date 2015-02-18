@@ -1,0 +1,41 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wed Feb 18 15:08:25 2015
+
+   Source : c:\users\dinesh narayanaswamy\documents\visual studio 2013\Projects\Umbraco-webapi\Umbraco-webapi\bin\
+     Dest : c:\users\dinesh narayanaswamy\documents\visual studio 2013\Projects\Umbraco-webapi\Umbraco-webapi\App_Data\NuGetBackup\20150218-150825\bin\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /COPY:DAT /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                  10	c:\users\dinesh narayanaswamy\documents\visual studio 2013\Projects\Umbraco-webapi\Umbraco-webapi\bin\
+	    New File  		  502272	Newtonsoft.Json.dll  0%   26%   52%   78%  100%  
+	    New File  		  185032	System.Net.Http.Formatting.dll  0%   70%  100%  
+	    New File  		  139984	System.Web.Helpers.dll  0%   93%  100%  
+	    New File  		  471240	System.Web.Http.dll  0%   27%   55%   83%  100%  
+	    New File  		   82120	System.Web.Http.WebHost.dll  0%  100%  
+	    New File  		  565448	System.Web.Mvc.dll  0%   46%   92%  100%  
+	    New File  		  272080	System.Web.Razor.dll  0%   48%   96%  100%  
+	    New File  		   41680	System.Web.Webpages.Deployment.dll  0%  100%  
+	    New File  		  211656	System.Web.Webpages.dll  0%   61%  100%  
+	    New File  		   39624	System.Web.Webpages.Razor.dll  0%  100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         1         0         1         0         0         0
+   Files :        10        10         0         0         0         0
+   Bytes :    2.39 m    2.39 m         0         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :            62778400 Bytes/sec.
+   Speed :            3592.208 MegaBytes/min.
+
+   Ended : Wed Feb 18 15:08:25 2015

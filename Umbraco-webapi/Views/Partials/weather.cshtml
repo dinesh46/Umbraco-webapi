@@ -1,0 +1,67 @@
+﻿@inherits UmbracoTemplatePage
+
+@{
+    string res = "";
+    var city = "";
+     
+    if (IsPost)
+    {
+        city = Request["cityName"];
+        var url = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&mode=json&units=metric&cnt=7";
+        var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+        
+        var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+        using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+
+        {
+            res = streamReader.ReadToEnd();
+              }  
+    }
+
+    Umbraco_webapi.weather_json.Rootobject wea_report = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<Umbraco_webapi.weather_json.Rootobject>(res);
+       
+}
+    <section class="container">
+    <form action="" method="post">
+        <p><label for="cityName">Please enter a city name</label><br></p>
+        <input type="text" name="cityName" required>
+        <p><input type="submit" value="Search" />
+    </form>
+    
+    <p class="hide">Hard coded API request<br /> @res</p>
+        <h1 class="hide" id="da">Weather report for 7 days<br /></h1>
+
+    @if (city == "")
+    {
+
+    }
+    else
+    {
+        foreach (var obj in wea_report.list)
+        {
+            <script>
+                $(".hide").fadeIn();
+                var a = new Date(@obj.dt * 1000);
+                var date = a.getDate();
+                // hours part from the timestamp
+                var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+                var year = a.getFullYear();
+                var month = months[a.getMonth()];
+                var time = +date + ', ' + month + ' ' + year + '';
+                $("#da").append('Date:'+ time +'</br>Max temperatue: @obj.temp.max<br />Min temperature: @obj.temp.min<br />cloud Description: @obj.weather[0].description<br /><br /><br />').fadeIn();
+            </script>
+
+            <div><h1 class="hide" id="da"></h1></div>
+
+        }
+    }
+</section>
+
+
+
+
+
+
+
+
+
